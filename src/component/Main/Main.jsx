@@ -1,20 +1,20 @@
 import { useState } from 'react';
 import { Box, Typography, CircularProgress } from '@mui/material';
-import { makeStyles } from 'tss-react/mui';
 import { getName } from 'country-list';
 import CitySearch from '../CitySearch';
 import Result from '../Result';
 import { useWeatherSearch } from './util';
 
-const useStyles = makeStyles(() => {});
-
 const Main = ({}) => {
-  const styles = useStyles();
   const [coordinates, setCoordinates] = useState({});
   const [city, setCity] = useState();
   const { name, state, country } = city ?? {};
   const { error, loading, data } = useWeatherSearch(coordinates);
   const { weatherSearch: weather } = data ?? {};
+
+  if (error) {
+    console.error(error);
+  }
 
   return (
     <Box my={5} mx={7}>

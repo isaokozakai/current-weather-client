@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Main from './component/Main';
 
