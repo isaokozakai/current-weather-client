@@ -1,9 +1,8 @@
-import { getName } from 'country-list';
-import { Paper, Typography } from '@mui/material';
+import { Paper, Box, Typography } from '@mui/material';
 
 const Result = ({ result: { state, temp, humidity, time } }) => {
   return (
-    <Paper variant="outlined">
+    <Paper variant="outlined" component={Box} py={1} px={2} sx={{ width: 'max-content' }}>
       <Typography>
         Current Weather&nbsp;
         {new Date(time).toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })}
