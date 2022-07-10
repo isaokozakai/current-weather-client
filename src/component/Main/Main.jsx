@@ -26,7 +26,7 @@ const Main = ({}) => {
       </Box>
       {city && (
         <Typography display="div" mb={1}>
-          {name}&nbsp;
+          {name}
           {state ? `, ${state}` : ''},&nbsp;{getName(country)}
         </Typography>
       )}

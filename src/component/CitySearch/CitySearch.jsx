@@ -37,7 +37,7 @@ const CitySearch = ({ setCoordinates, setCity }) => {
               }}
               key={index}
             >
-              {name}&nbsp;
+              {name}
               {state ? `, ${state}` : ''},&nbsp;{getName(country)}
             </MenuItem>
           ))}
