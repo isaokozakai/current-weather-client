@@ -2,15 +2,15 @@ import { useState, useRef } from 'react';
 import { MenuItem, TextField, Typography } from '@mui/material';
 import { getName } from 'country-list';
 import Menu from '../Menu';
-import { useCitySearch } from './util';
+import { useCities } from './util';
 
 const CitySearch = ({ setCoordinates, setCity }) => {
   const [search, setSearch] = useState('');
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
   const menuRef = useRef(null);
-  const { error, data } = useCitySearch(search);
-  const { citySearch: cities = [] } = data ?? {};
+  const { error, data } = useCities(search);
+  const { cities = [] } = data ?? {};
 
   if (error) {
     console.error(error);

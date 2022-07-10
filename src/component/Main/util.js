@@ -1,8 +1,8 @@
 import { useQuery, gql } from '@apollo/client';
 
-const weatherSearchQuery = gql`
-  query weatherSearch($lat: Float, $lon: Float) {
-    weatherSearch(lat: $lat, lon: $lon) {
+const weatherQuery = gql`
+  query weather($lat: Float, $lon: Float) {
+    weather(lat: $lat, lon: $lon) {
       state
       temp
       humidity
@@ -11,8 +11,8 @@ const weatherSearchQuery = gql`
   }
 `;
 
-export const useWeatherSearch = ({ lat, lon }) =>
-  useQuery(weatherSearchQuery, {
+export const useWeather = ({ lat, lon }) =>
+  useQuery(weatherQuery, {
     variables: {
       lat,
       lon,

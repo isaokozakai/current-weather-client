@@ -3,14 +3,14 @@ import { Box, Typography, CircularProgress } from '@mui/material';
 import { getName } from 'country-list';
 import CitySearch from '../CitySearch';
 import Result from '../Result';
-import { useWeatherSearch } from './util';
+import { useWeather } from './util';
 
 const Main = ({}) => {
   const [coordinates, setCoordinates] = useState({});
   const [city, setCity] = useState();
   const { name, state, country } = city ?? {};
-  const { error, loading, data } = useWeatherSearch(coordinates);
-  const { weatherSearch: weather } = data ?? {};
+  const { error, loading, data } = useWeather(coordinates);
+  const { weather } = data ?? {};
 
   if (error) {
     console.error(error);

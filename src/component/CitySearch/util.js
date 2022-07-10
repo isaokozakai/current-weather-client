@@ -1,8 +1,8 @@
 import { useQuery, gql } from '@apollo/client';
 
-const citySearchQuery = gql`
-  query citySearch($search: String) {
-    citySearch(search: $search) {
+const citiesQuery = gql`
+  query cities($search: String) {
+    cities(search: $search) {
       name
       state
       country
@@ -12,8 +12,8 @@ const citySearchQuery = gql`
   }
 `;
 
-export const useCitySearch = (search) =>
-  useQuery(citySearchQuery, {
+export const useCities = (search) =>
+  useQuery(citiesQuery, {
     variables: {
       search,
     },
