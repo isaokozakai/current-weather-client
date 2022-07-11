@@ -1,5 +1,5 @@
 # Imdex Coding Challenge Client
-This is a current weather search application
+This is a client for a current weather search application
 
 ## Features
 - You can sign up with username and password *username must be unique
