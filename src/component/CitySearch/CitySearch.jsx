@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { MenuItem, TextField, Typography } from '@mui/material';
+import { FormControl, FormHelperText, MenuItem, TextField, Typography } from '@mui/material';
 import { getName } from 'country-list';
 import Menu from '../Menu';
 import { useCities } from './util';
@@ -19,13 +19,17 @@ const CitySearch = ({ setCoordinates, setCity }) => {
   return (
     <>
       <Typography mb={1}>Search for a city and choose one</Typography>
-      <TextField
-        ref={anchorRef}
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        onFocus={() => setOpen(true)}
-        onBlur={() => setOpen(false)}
-      />
+      <FormControl error={Boolean(error)}>
+        <TextField
+          ref={anchorRef}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onFocus={() => setOpen(true)}
+          onBlur={() => setOpen(false)}
+          sx={{ width: '300px' }}
+        />
+        {error && <FormHelperText>{error.message}</FormHelperText>}
+      </FormControl>
       <Menu ref={menuRef} anchorEl={anchorRef.current} open={open} onClose={() => setOpen(false)}>
         {cities.length > 0 &&
           cities.map(({ name, state, country, lat, lon }, index) => (
