@@ -10,4 +10,5 @@ This is a client for a current weather search application
 ## Test Environment Setup
 1. Set up and run the server project [imdex-coding-challenge-server
 ](https://github.com/isaokozakai/imdex-coding-challenge-server)
-2. Run `yarn start`
+2. Run `yarn install`
+3. Run `yarn start`
