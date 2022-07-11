@@ -10,13 +10,7 @@ const Main = ({}) => {
   const [coordinates, setCoordinates] = useState({});
   const [city, setCity] = useState();
   const [open, setOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('token'));
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      localStorage.removeItem('token');
-    }
-  }, [isAuthenticated]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const { name, state, country } = city ?? {};
   const { error, loading, data } = useWeather(coordinates);
@@ -32,7 +26,13 @@ const Main = ({}) => {
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={4}>
           <Typography variant="h2">Current Weather Search</Typography>
           {isAuthenticated ? (
-            <Button onClick={() => setIsAuthenticated(false)} sx={{ height: 'max-content' }}>
+            <Button
+              onClick={() => {
+                setIsAuthenticated(false);
+                localStorage.removeItem('token');
+              }}
+              sx={{ height: 'max-content' }}
+            >
               Log out
             </Button>
           ) : (
