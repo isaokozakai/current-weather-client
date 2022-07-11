@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Box, Typography, CircularProgress, Button } from '@mui/material';
 import { getName } from 'country-list';
 import AuthModal from '../AuthModal';
@@ -10,7 +10,7 @@ const Main = ({}) => {
   const [coordinates, setCoordinates] = useState({});
   const [city, setCity] = useState();
   const [open, setOpen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('token'));
 
   const { name, state, country } = city ?? {};
   const { error, loading, data } = useWeather(coordinates);
