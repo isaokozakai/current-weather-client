@@ -8,7 +8,6 @@ const CitySearch = ({ setCoordinates, setCity }) => {
   const [search, setSearch] = useState('');
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
-  const menuRef = useRef(null);
   const { error, data } = useCities(search);
   const { cities = [] } = data ?? {};
 
@@ -30,7 +29,7 @@ const CitySearch = ({ setCoordinates, setCity }) => {
         />
         {error && <FormHelperText>{error.message}</FormHelperText>}
       </FormControl>
-      <Menu ref={menuRef} anchorEl={anchorRef.current} open={open} onClose={() => setOpen(false)}>
+      <Menu anchorEl={anchorRef.current} open={open} onClose={() => setOpen(false)}>
         {cities.length > 0 &&
           cities.map(({ name, state, country, lat, lon }, index) => (
             <MenuItem

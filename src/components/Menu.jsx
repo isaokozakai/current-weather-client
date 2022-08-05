@@ -1,13 +1,15 @@
-import { forwardRef } from 'react';
+import { useRef } from 'react';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 import MenuList from '@mui/material/MenuList';
 
-const Menu = forwardRef(({ children, anchorEl, open, onClose }, ref) => {
+const Menu = ({ children, anchorEl, open, onClose }) => {
+  const menuRef = useRef(null);
+
   const handleClose = (event) => {
-    if ((ref.current && ref.current.contains(event.target)) || anchorEl.contains(event.target)) {
+    if ((menuRef.current && menuRef.current.contains(event.target)) || anchorEl.contains(event.target)) {
       return;
     }
 
@@ -15,7 +17,7 @@ const Menu = forwardRef(({ children, anchorEl, open, onClose }, ref) => {
   };
 
   return (
-    <Popper open={open} anchorEl={anchorEl} placement="bottom-start" transition disablePortal>
+    <Popper open={open} anchorEl={anchorEl} popperRef={menuRef} placement="bottom-start" transition disablePortal>
       {({ TransitionProps, placement }) => (
         <Grow
           {...TransitionProps}
@@ -32,8 +34,6 @@ const Menu = forwardRef(({ children, anchorEl, open, onClose }, ref) => {
       )}
     </Popper>
   );
-});
-
-Menu.displayName = 'Menu';
+};
 
 export default Menu;
