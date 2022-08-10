@@ -1,4 +1,4 @@
-# Imdex Coding Challenge Client
+# Current Weather App for Client
 This is a client project for a current weather search application
 
 ## Features
