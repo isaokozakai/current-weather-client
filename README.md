@@ -1,4 +1,4 @@
-# Current Weather App for Client
+# Current Weather App Client
 This is a client project for a current weather search application
 
 ## Features
